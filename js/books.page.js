@@ -25,18 +25,18 @@ $(document).ready(function(){
         xhrFields: { withCredentials: true },
         url: "https://localhost:8000/getbooks",
 
-        success: function( data ) {
-          data.forEach(function(data){
+        success: function( books ) {
+          books.forEach(function(books){
             $booksISBN.append(
                 "<tr>" +
-                "<td>" + data.isbn +"</td>" +
-                "<td>" + data.title + "</td>" +
-                "<td>" + data.edition +"</td>" +
-                "<td>" + data.author + "</td>" +
+                "<td>" + books.isbn +"</td>" +
+                "<td>" + books.title + "</td>" +
+                "<td>" + books.edition +"</td>" +
+                "<td>" + books.author + "</td>" +
                 "</tr>"
             );
           })
         },
-        error: function( data ) { alert(JSON.stringify(data)); }
+        error: function( books ) { alert(JSON.stringify(data)); }
     });
 });
