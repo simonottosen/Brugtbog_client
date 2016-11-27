@@ -27,6 +27,31 @@ $(document).ready(function(){
 
         success: function( users ) {
           users.forEach(function(users){
+            if (users.transfer == 0){
+              var transfer = "Nej";
+            }
+            else{
+              var transfer = "Ja";
+            }
+            if (users.mobilepay == 0){
+              var mobilepay = "Nej";
+            }
+            else{
+              var mobilepay = "Ja";
+            }
+            if (users.cash == 0){
+              var cash = "Nej";
+            }
+            else{
+              var cash = "Ja";
+            }
+            if (users.type == 0){
+              var type = "Bruger";
+            }
+            else{
+              var type = "Admin";
+            }
+
             $usercontrol.append(
                 "<tr>" +
                 "<td>" + users.userid + "</td>" +
@@ -34,10 +59,13 @@ $(document).ready(function(){
                 "<td>" + users.phonenumber + "</td>" +
                 "<td>" + users.address +"</td>" +
                 "<td>" + users.email + "</td>" +
-                "<td>" + users.mobilepay + "</td>" +
-                "<td>" + users.cash + "</td>" +
-                "<td>" + users.transfer + "</td>" +
-                "<td>" + users.type + "</td>" +
+                "<td>" + transfer + "</td>" +
+                "<td>" + mobilepay + "</td>" +
+                "<td>" + cash + "</td>" +
+                "<td>" + type + "</td>" +
+                "<td><a class='btn mini blue-stripe' onclick='change()' href='#'>Ændre</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='delete()' href='#'>Slet</a></td>" +
+
                 "</tr>"
             );
           })
