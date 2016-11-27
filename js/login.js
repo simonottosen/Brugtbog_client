@@ -1,7 +1,6 @@
-
-
-$(document).ready(function(){
-    var $usercontrol = $("#usercontrol");
+function login() {
+    var username = $("#username").val();
+    var password = $("#password").val();
 
     $.ajax({
         type: "POST",
@@ -9,14 +8,14 @@ $(document).ready(function(){
         xhrFields: { withCredentials: true },
         url: "https://localhost:8000/login",
         data: JSON.stringify({
-            "username" : "test",
-            "password" : "1234"
+            "username" : username,
+            "password" : password
         }),
-
-        success: function( data ) {//alert(JSON.stringify(data));
-         },
-        error: function( data ) { alert(JSON.stringify(data)); }
+        success: function(data) {
+            alert(JSON.stringify(data));
+        },
+        error: function(data) {
+            alert(JSON.stringify(data));
+        }
     });
-
-
-});
+}
