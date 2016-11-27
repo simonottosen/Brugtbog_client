@@ -40,23 +40,33 @@
     </nav>
 
     <div class="page-header">
-        <h1>Se alle bøger</h1>
+        <h1>Opret ny bog</h1>
     </div>
 
-    <table class="table">
-        <thead>
-        <th>First name</th>
-        <th>Last name</th>
-        <th>Username</th>
-        <th>Password</th>
-        </thead>
-        <tbody id="usercontrol">
-            <tr>
+    <div class="container">
+      <h2>Opret en ny bog</h2>
+      <p>Udfyld venligst nedenstående information:</p>
+      <form onsubmit="myFunction()">
+        <div class="adform">
+          <label for="isbn">ISBN:</label>
+          <input type="text" class="form-control" id="isbn">
 
-            </tr>
+          <label for="title">Title:</label>
+          <input type="text" class="form-control" id="title">
 
-        </tbody>
-    </table>
+          <label for="edition">Edition:</label>
+          <input type="text" class="form-control" id="edition">
+
+          <label for="author">Author:</label>
+          <input type="text" class="form-control" id="author">
+
+</br>
+        </div>
+
+
+      </form>
+       <button onclick="submitbookform()">Opret bog</button>
+    </div>
 
 </div>
 </body>

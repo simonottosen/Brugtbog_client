@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
     var $createad = $("#createad");
-
+/*
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -18,23 +18,29 @@ $(document).ready(function(){
         error: function( data ) { alert(JSON.stringify(data)); }
     });
 
-
+*/
+function submitadform(){
     $.ajax({
         type: "POST",
         dataType: "json",
         xhrFields: { withCredentials: true },
         url: "https://localhost:8000/createad",
         data: JSON.stringify({
-          "price" : "500",
-          "rating" : "5",
-          "userid" : "1",
-          "isbn" : "9780077164263",
-          "deleted" : "0",
-          "comment" : "test",
-          "locked" : "0"
+          "userid" : 1,
+          "isbn" : $("#isbn").val(),
+          "rating" : $("#rating").val(),
+          "comment" : $("#comment").val(),
+          "price" : $("#price").val()
+
+
     }),
-    success: function( data ) {//alert(JSON.stringify(data));
+    success: function( data ) {
+      alert("Din annonce er blevet oprettet.\n" + JSON.stringify(data));
+      document.location.href = "index_user.html"
+
+
      },
-    error: function( data ) { alert(JSON.stringify(data)); }
+    error: function( data ) { alert("Der er desværre sket en fejl. Prøv igen.\n" + JSON.stringify(data)); }
+
     });
-});
+  });
