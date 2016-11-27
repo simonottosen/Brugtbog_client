@@ -29,10 +29,15 @@ $(document).ready(function(){
           users.forEach(function(users){
             $usercontrol.append(
                 "<tr>" +
+                "<td>" + users.userid + "</td>" +
                 "<td>" + users.username +"</td>" +
-                "<td>" + users.title + "</td>" +
-                "<td>" + users.edition +"</td>" +
-                "<td>" + users.author + "</td>" +
+                "<td>" + users.phonenumber + "</td>" +
+                "<td>" + users.address +"</td>" +
+                "<td>" + users.email + "</td>" +
+                "<td>" + users.mobilepay + "</td>" +
+                "<td>" + users.cash + "</td>" +
+                "<td>" + users.transfer + "</td>" +
+                "<td>" + users.type + "</td>" +
                 "</tr>"
             );
           })

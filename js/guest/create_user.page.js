@@ -37,7 +37,7 @@ function submituserform(){
 
   }),
   success: function( data ) {
-    document.location.href = "index.html"
+    alert("Din bruger er blevet oprettet. Du bliver nu sendt til forsiden.\n" + JSON.stringify(data));
 
 
    },
