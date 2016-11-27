@@ -4,9 +4,7 @@
   <link rel="stylesheet" href="/Brugtbog_client/lib/css/bootstrap.css">
   <script type="text/javascript" src="/Brugtbog_client/lib/js/jquery-3.1.1.js"></script>
   <script type="text/javascript" src="/Brugtbog_client/lib/js/bootstrap.js"></script>
-  <script type="text/javascript" src="/Brugtbog_client/js/logout.js"></script>
-  <script type="text/javascript" src="/Brugtbog_client/js/user/reserve_ads.page.js"></script>
-
+  <script type="text/javascript" src="/Brugtbog_client/js/guest/show_books.page.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Title</title>
 </head>
@@ -24,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index_user.html">Home</a>
+                <a class="navbar-brand" href="index.html">Home</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,32 +44,25 @@
     </nav>
 
     <div class="page-header">
-        <h1>Se alle annoncer</h1>
+        <h1>Se alle bøger</h1>
     </div>
 
     <table class="table">
         <thead>
-        <th>Annonce-ID</th>
         <th>ISBN</th>
-        <th>Titel</th>
-        <th>Forfatter</th>
-        <th>Udgave</th>
-        <th>Rating</th>
-        <th>Pris</th>
-        <th>Sælgers brugernavn</th>
-        <th>Bankoverførsel</th>
-        <th>Mobilepay</th>
-        <th>Kontanter</th>
-
-        <th>Reservation</th>
+        <th>Title</th>
+        <th>Edition</th>
+        <th>Author</th>
         </thead>
-        <tbody id="adsreservation">
+        <tbody id="booksISBN">
             <tr>
+
             </tr>
 
         </tbody>
-
     </table>
+
+</div>
 
 <script type="text/javascript">
     $(document).ready(function() {

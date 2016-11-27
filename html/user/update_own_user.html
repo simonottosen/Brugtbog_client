@@ -4,6 +4,9 @@
   <link rel="stylesheet" href="/Brugtbog_client/lib/css/bootstrap.css">
   <script type="text/javascript" src="/Brugtbog_client/lib/js/jquery-3.1.1.js"></script>
   <script type="text/javascript" src="/Brugtbog_client/lib/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/Brugtbog_client/js/logout.js"></script>
+  <script type="text/javascript" src="/Brugtbog_client/js/user/update_own_user.page.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Title</title>
 </head>
@@ -36,36 +39,58 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Logud</a></li>
+                  <input type="button" class="btn btn-primary" id="logut" value="Log ud"/>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
 
     <div class="page-header">
-        <h1>Se alle bøger</h1>
+        <h1>Se information om din bruger</h1>
     </div>
 
-    <div class="container">
-      <h2>Lav en ny annonce</h2>
-      <p>Indtast navnet til din annonce:</p>
-      <form>
-        <div class="form-group">
-          <label for="price">Pris:</label>
-          <input type="text" class="form-control" id="price">
-        </div>
-        <div class="form-group">
-          <label for="rating">Rating:</label>
-          <input type="text" class="form-control" id="rating">
-        </div>
-        <div class="form-group">
-          <label for="comment">Kommentar:</label>
-          <input type="text" rows="5" class="form-control" id="comment">
-        </div>
+    <table class="table">
+        <thead>
+        <th>UserID</th>
+        <th>Username</th>
+        <th>Telefonnummer</th>
+        <th>Addresse</th>
+        <th>Email</th>
+        <th>Bankoverførsel</th>
+        <th>Mobilepay</th>
+        <th>Kontant</th>
+        <th>Brugertype</th>
 
-      </form>
-    </div>
+
+        </thead>
+        <tbody id="getuser">
+            <tr>
+
+            </tr>
+
+        </tbody>
+    </table>
+    <input type="button" class="btn btn-primary" id="change" value="Ændr i din personlige data"/>
+
 
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#logut").click(function() {
+            logut();
+        });
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#change").click(function() {
+            change();
+        });
+    });
+</script>
+
+
 </body>
 </html>

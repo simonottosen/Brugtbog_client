@@ -1,22 +1,7 @@
 
 
 $(document).ready(function(){
-    var $adsreservation = $("#adsreservation");
-
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/login",
-        data: JSON.stringify({
-            "username" : "simon",
-            "password" : "ottosen"
-        }),
-
-        success: function( data ) {//alert(JSON.stringify(data));
-         },
-        error: function( data ) { alert(JSON.stringify(data)); }
-    });
+    var $adsreservation = $("#adsshow");
 
 
     $.ajax({
@@ -59,9 +44,6 @@ else{
                 "<td>" + transfer + "</td>" +
                 "<td>" + mobilepay + "</td>" +
                 "<td>" + cash + "</td>" +
-
-
-                "<td><a class='btn mini blue-stripe' onclick='addres()' href='#'>Reserver</a></td>" +
                 "</tr>"
             );
           })
@@ -69,19 +51,3 @@ else{
         error: function( ads ) { alert(JSON.stringify(data)); }
     });
 });
-
-function addres(data){
-  console.log ("hej");
-  $.ajax({
-      type: "POST",
-      dataType: "json",
-      xhrFields: { withCredentials: true },
-      url: "https://localhost:8000/reservead",
-      data: JSON.stringify({
-
-  }),
-  success: function( data ) {//alert(JSON.stringify(data));
-   },
-  error: function( data ) { alert(JSON.stringify(data)); }
-  });
-}
