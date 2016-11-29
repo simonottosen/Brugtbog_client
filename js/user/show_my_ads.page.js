@@ -8,84 +8,103 @@ $(document).ready(function(){
         type: "GET",
         dataType: "json",
         xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/getads",
+        url: "https://localhost:8000/getmyads",
 
         success: function( ads ) {
           ads.forEach(function(ads){
 
-if (ads.userTransfer == 0){
-  var transfer = "Nej";
-}
-else{
-  var transfer = "Ja";
-}
-if (ads.userMobilepay == 0){
-  var mobilepay = "Nej";
-}
-else{
-  var mobilepay = "Ja";
-}
-if (ads.userCash == 0){
-  var cash = "Nej";
-}
-else{
-  var cash = "Ja";
+            if (ads.locked == 0){
+              var locked = "Nej";
+            }
+            else{
+              var locked = "Ja";
 }
             $adsreservation.append(
                 "<tr>" +
                 "<td>" + ads.adId +"</td>" +
                 "<td>" + ads.isbn + "</td>" +
-                "<td>" + ads.bookTitle + "</td>" +
-                "<td>" + ads.bookAuthor +"</td>" +
-                "<td>" + ads.bookEdition + "</td>" +
                 "<td>" + ads.rating + "/5" + "</td>" +
                 "<td>" + ads.price + "</td>" +
-                "<td>" + ads.userUsername + "</td>" +
-                "<td>" + transfer + "</td>" +
-                "<td>" + mobilepay + "</td>" +
-                "<td>" + cash + "</td>" +
+                "<td>" + locked + "</td>" +
 
-                "<td><a class='btn mini blue-stripe' onclick='unlock()' href='#'>Lås op</a></td>" +
-                "<td><a class='btn mini blue-stripe' onclick='removead()' href='#'>Slet</a></td>" +
-                "<td><a class='btn mini blue-stripe' onclick='change()' href='#'>Ændre</a></td>" +
-
+                "<td><a class='btn mini blue-stripe unlockBtn' onclick='unlock(" + ads.adId + ")' href='#'>Lås op</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
+                "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
                 "</tr>"
             );
+
+
+
           })
         },
         error: function( ads ) { alert(JSON.stringify(data)); }
     });
 });
 
-function unlock(){
+function unlock(adId){
+console.log(adId);
   $.ajax({
       type: "POST",
       dataType: "json",
       xhrFields: { withCredentials: true },
       url: "https://localhost:8000/unlockad",
       data: JSON.stringify({
-        "adid" : adId
+        "id" : adId
   }),
-  success: function( data ) {//alert(JSON.stringify(data));
+  success: function( data ) {window.location.reload(false);
+    //alert(JSON.stringify(data));
    },
-  error: function( data ) { alert(JSON.stringify(data)); }
+  error: function( data ) {window.location.reload(false);
+    // alert(JSON.stringify(data));
+  }
   });
+}
+
+  function removead(adId) {
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          xhrFields: {withCredentials: true},
+          url: "https://localhost:8000/deletead",
+          data: JSON.stringify({
+              "id": adId
+          }),
+          success: function (data) {
+              window.location.reload(false);
+              //alert(JSON.stringify(data));
+          },
+          error: function (data) {
+              window.location.reload(false);
+              //alert(JSON.stringify(data));
+          }
+      });
+      function submitadform(adId) {
+          $.ajax({
+              type: "POST",
+              dataType: "json",
+              xhrFields: {withCredentials: true},
+              url: "https://localhost:8000/updatead",
+              data: JSON.stringify({
+                  "adid": adId,
+                  "isbn": $("#isbn").val(),
+                  "bookTitle": $("#bookTitle").val(),
+                  "bookAuthor": $("#bookAuthor").val(),
+                  "bookEdition": $("#bookEdition").val(),
+                  "rating": $("#rating").val(),
+                  "price": $("#price").val(),
+                  "userUsername": $("#userUsername").val(),
+                  "transfer": $("#transfer").val(),
+                  "mobilepay": $("#mobilepay").val(),
+                  "cash": $("#cash").val()
+
+              }),
+              success: function (data) {//alert(JSON.stringify(data));
+              },
+              error: function (data) {
+                  alert(JSON.stringify(data));
+              }
+          });
 
 
-  function removead(){
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/deletead",
-        data: JSON.stringify({
-        "adid" : adId
-    }),
-    success: function( data ) {//alert(JSON.stringify(data));
-     },
-    error: function( data ) { alert(JSON.stringify(data)); }
-    });
-
-
-
-}}
+      }
+  }

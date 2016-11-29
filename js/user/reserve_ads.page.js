@@ -46,7 +46,7 @@ else{
                 "<td>" + cash + "</td>" +
 
 
-                "<td><a class='btn mini blue-stripe' onclick='lock()' href='#'>Reserver</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='lock(" + ads.adId + ")' href='#'>Reserver</a></td>" +
                 "</tr>"
             );
           })
@@ -55,17 +55,17 @@ else{
     });
 });
 
-function lock(data){
+function lock(adId){
   $.ajax({
       type: "POST",
       dataType: "json",
       xhrFields: { withCredentials: true },
       url: "https://localhost:8000/reservead",
       data: JSON.stringify({
-        "adid" : adId
+        "id" : adId
   }),
-  success: function( data ) {//alert(JSON.stringify(data));
+  success: function( data ) {window.location.reload(false);//alert(JSON.stringify(data));
    },
-  error: function( data ) { alert(JSON.stringify(data)); }
+  error: function( data ) { window.location.reload(false); alert(JSON.stringify(data)); }
   });
 }

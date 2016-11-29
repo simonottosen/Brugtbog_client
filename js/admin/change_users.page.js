@@ -64,7 +64,7 @@ $(document).ready(function(){
                 "<td>" + cash + "</td>" +
                 "<td>" + type + "</td>" +
                 "<td><a class='btn mini blue-stripe' onclick='change()' href='#'>Ændre</a></td>" +
-                "<td><a class='btn mini blue-stripe' onclick='delete()' href='#'>Slet</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='delete(" + users.userid + ")' href='#'>Slet</a></td>" +
 
                 "</tr>"
             );
@@ -94,19 +94,20 @@ $(document).ready(function(){
          },
         error: function( data ) { alert(JSON.stringify(data)); }
     });
-    function delete(){
+    function delete(userid){
     $.ajax({
         type: "POST",
         dataType: "json",
         xhrFields: { withCredentials: true },
         url: "https://localhost:8000/deleteuseradmin",
         data: JSON.stringify({
-          "userid" : userid
+          "id" : userid
         }),
 
-        success: function( data ) {//alert(JSON.stringify(data));
+        success: function( data ) {window.location.reload(false);//alert(JSON.stringify(data));
          },
-        error: function( data ) { alert(JSON.stringify(data)); }
+        error: function( data ) { window.location.reload(false); //alert(JSON.stringify(data));
+        }
     });
 
 });
