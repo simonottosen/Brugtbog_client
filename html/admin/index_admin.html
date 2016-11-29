@@ -4,7 +4,9 @@
   <link rel="stylesheet" href="/Brugtbog_client/lib/css/bootstrap.css">
   <script type="text/javascript" src="/Brugtbog_client/lib/js/jquery-3.1.1.js"></script>
   <script type="text/javascript" src="/Brugtbog_client/lib/js/bootstrap.js"></script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script type="text/javascript" src="/Brugtbog_client/js/logout.js"></script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Brugtbog-Admin</title>
 </head>
 <body>
@@ -33,7 +35,7 @@
 
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Logud</a></li>
+                  <input type="button" class="btn btn-primary" id="logout" value="Log ud"/>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
@@ -47,5 +49,13 @@
 
 
 </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    $("#logout").click(function() {
+        logout();
+        });
+    });
+</script>
+
 </body>
 </html>

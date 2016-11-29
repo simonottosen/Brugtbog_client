@@ -51,6 +51,6 @@ $(document).ready(function(){
                 "</tr>"
             );
         },
-        error: function( users ) { alert(JSON.stringify(data)); }
+        error: function( users ) { alert(JSON.stringify(users)); }
     });
 });
