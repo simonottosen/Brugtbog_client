@@ -43,4 +43,4 @@ function submitadform(){
     error: function( data ) { alert("Der er desværre sket en fejl. Prøv igen.\n" + JSON.stringify(data)); }
 
     });
-  });
+  }});
