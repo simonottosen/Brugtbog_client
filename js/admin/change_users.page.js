@@ -72,4 +72,41 @@ $(document).ready(function(){
         },
         error: function( users ) { alert(JSON.stringify(users)); }
     });
+    function change(){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        xhrFields: { withCredentials: true },
+        url: "https://localhost:8000/updateuseradmin",
+        data: JSON.stringify({
+          "userid" : $("#userid").val(),
+          "username" : $("#username").val(),
+          "password" : $("#password").val(),
+          "phonenumber" : parseInt($("#phonenumber").val()),
+          "address" : $("#address").val(),
+          "email" : $("#email").val(),
+          "cash"  : parseInt($("#cash").is(':checked') ? 1 : 0),
+          "mobilepay" : parseInt($("#mobilepay").is(':checked') ? 1 : 0),
+          "transfer" : parseInt($("#transfer").is(':checked') ? 1 : 0)
+        }),
+
+        success: function( data ) {//alert(JSON.stringify(data));
+         },
+        error: function( data ) { alert(JSON.stringify(data)); }
+    });
+    function delete(){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        xhrFields: { withCredentials: true },
+        url: "https://localhost:8000/deleteuseradmin",
+        data: JSON.stringify({
+          "userid" : userid
+        }),
+
+        success: function( data ) {//alert(JSON.stringify(data));
+         },
+        error: function( data ) { alert(JSON.stringify(data)); }
+    });
+
 });

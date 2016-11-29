@@ -46,7 +46,9 @@ else{
                 "<td>" + cash + "</td>" +
 
                 "<td><a class='btn mini blue-stripe' onclick='unlock()' href='#'>Lås op</a></td>" +
-                "<td><a class='btn mini blue-stripe' onclick='delete()' href='#'>Slet</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='removead()' href='#'>Slet</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='change()' href='#'>Ændre</a></td>" +
+
                 "</tr>"
             );
           })
@@ -55,7 +57,7 @@ else{
     });
 });
 
-function unlock(data){
+function unlock(){
   $.ajax({
       type: "POST",
       dataType: "json",
@@ -70,7 +72,7 @@ function unlock(data){
   });
 
 
-  function delete(data){
+  function removead(){
     $.ajax({
         type: "POST",
         dataType: "json",
@@ -84,4 +86,6 @@ function unlock(data){
     error: function( data ) { alert(JSON.stringify(data)); }
     });
 
-}
+
+
+}}

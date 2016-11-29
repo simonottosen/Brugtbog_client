@@ -3,12 +3,26 @@
 $(document).ready(function(){
     var $adsreservation = $("#adsreservation");
 
+      $.ajax({
+          type: "GET",
+          dataType: "json",
+          xhrFields: { withCredentials: true },
+          url: "https://localhost:8000/getmyreservations",
+          success: function( test ) {
+            ads.forEach(function(test){
+          var a = ads.adId;
+       })},
+      error: function( data ) { alert(JSON.stringify(data)); }
+      });
 
     $.ajax({
-        type: "GET",
+        type: "POST",
         dataType: "json",
         xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/getmyreservations",
+        url: "https://localhost:8000/getad",
+        data: JSON.stringify({
+            "adid" : id
+        }),
 
         success: function( ads ) {
           ads.forEach(function(ads){
@@ -52,7 +66,7 @@ else{
             );
           })
         },
-        error: function( ads ) { alert(JSON.stringify(data)); }
+        error: function( ads ) { alert(JSON.stringify(ads)); }
     });
 });
 
