@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/Brugtbog_client/lib/css/bootstrap.css">
-    <script type="text/javascript" src="/Brugtbog_client/lib/js/jquery-3.1.1.js"></script>
-    <script type="text/javascript" src="/Brugtbog_client/lib/js/bootstrap.js"></script>
-    <script type="text/javascript" src="/Brugtbog_client/js/logout.js"></script>
+  <link rel="stylesheet" href="/Brugtbog_client/lib/css/bootstrap.css">
+  <script type="text/javascript" src="/Brugtbog_client/lib/js/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="/Brugtbog_client/lib/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/Brugtbog_client/js/logout.js"></script>
+  <script type="text/javascript" src="/Brugtbog_client/js/user/show_my_reservations.page.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Title</title>
 </head>
@@ -46,34 +48,37 @@
     </nav>
 
     <div class="page-header">
-        <h1>Se alle bøger</h1>
+        <h1>Se alle annoncer</h1>
     </div>
 
-    <div class="container">
-      <h2>Lav en ny annonce</h2>
-      <p>Indtast navnet til din annonce:</p>
-      <form>
-        <div class="form-group">
-          <label for="price">Pris:</label>
-          <input type="text" class="form-control" id="price">
-        </div>
-        <div class="form-group">
-          <label for="rating">Rating:</label>
-          <input type="text" class="form-control" id="rating">
-        </div>
-        <div class="form-group">
-          <label for="comment">Kommentar:</label>
-          <input type="text" rows="5" class="form-control" id="comment">
-        </div>
+    <table class="table">
+        <thead>
+        <th>Annonce-ID</th>
+        <th>ISBN</th>
+        <th>Titel</th>
+        <th>Forfatter</th>
+        <th>Udgave</th>
+        <th>Rating</th>
+        <th>Pris</th>
+        <th>Sælgers brugernavn</th>
+        <th>Telefonnummer</th>
+        <th>Bankoverførsel</th>
+        <th>Mobilepay</th>
+        <th>Kontanter</th>
+        <th>Fjern reservation</th>
+        </thead>
+        <tbody id="adsreservation">
+            <tr>
+            </tr>
 
-      </form>
-    </div>
+        </tbody>
 
-</div>
+    </table>
+
 <script type="text/javascript">
-    $(document).ready(function() {
-        $("#logout").click(function() {
-            logout();
+$(document).ready(function() {
+    $("#logout").click(function() {
+        logout();
         });
     });
 </script>

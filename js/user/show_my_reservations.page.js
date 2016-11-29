@@ -8,7 +8,7 @@ $(document).ready(function(){
         type: "GET",
         dataType: "json",
         xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/getads",
+        url: "https://localhost:8000/getmyreservations",
 
         success: function( ads ) {
           ads.forEach(function(ads){
@@ -41,12 +41,13 @@ else{
                 "<td>" + ads.rating + "/5" + "</td>" +
                 "<td>" + ads.price + "</td>" +
                 "<td>" + ads.userUsername + "</td>" +
+                "<td>" + ads.phonenumber + "</td>" +
                 "<td>" + transfer + "</td>" +
                 "<td>" + mobilepay + "</td>" +
                 "<td>" + cash + "</td>" +
 
 
-                "<td><a class='btn mini blue-stripe' onclick='lock()' href='#'>Reserver</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='deletereservation()' href='#'>Fjern reservering</a></td>" +
                 "</tr>"
             );
           })
@@ -55,14 +56,14 @@ else{
     });
 });
 
-function lock(data){
+function deletereservation(){
   $.ajax({
       type: "POST",
       dataType: "json",
       xhrFields: { withCredentials: true },
-      url: "https://localhost:8000/reservead",
+      url: "https://localhost:8000/deletereservation",
       data: JSON.stringify({
-        "adid" : adId
+        "adid" : adId,
   }),
   success: function( data ) {//alert(JSON.stringify(data));
    },

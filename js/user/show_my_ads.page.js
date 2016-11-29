@@ -45,8 +45,8 @@ else{
                 "<td>" + mobilepay + "</td>" +
                 "<td>" + cash + "</td>" +
 
-
-                "<td><a class='btn mini blue-stripe' onclick='lock()' href='#'>Reserver</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='unlock()' href='#'>Lås op</a></td>" +
+                "<td><a class='btn mini blue-stripe' onclick='delete()' href='#'>Slet</a></td>" +
                 "</tr>"
             );
           })
@@ -55,12 +55,12 @@ else{
     });
 });
 
-function lock(data){
+function unlock(data){
   $.ajax({
       type: "POST",
       dataType: "json",
       xhrFields: { withCredentials: true },
-      url: "https://localhost:8000/reservead",
+      url: "https://localhost:8000/unlockad",
       data: JSON.stringify({
         "adid" : adId
   }),
@@ -68,4 +68,20 @@ function lock(data){
    },
   error: function( data ) { alert(JSON.stringify(data)); }
   });
+
+
+  function delete(data){
+    $.ajax({
+        type: "POST",
+        dataType: "json",
+        xhrFields: { withCredentials: true },
+        url: "https://localhost:8000/deletead",
+        data: JSON.stringify({
+        "adid" : adId
+    }),
+    success: function( data ) {//alert(JSON.stringify(data));
+     },
+    error: function( data ) { alert(JSON.stringify(data)); }
+    });
+
 }
