@@ -19,20 +19,37 @@ $(document).ready(function(){
             else{
               var locked = "Ja";
 }
-            $adsreservation.append(
-                "<tr>" +
-                "<td>" + ads.adId +"</td>" +
-                "<td>" + ads.isbn + "</td>" +
-                "<td>" + ads.rating + "/5" + "</td>" +
-                "<td>" + ads.price + "</td>" +
-                "<td>" + locked + "</td>" +
 
-                "<td><a class='btn mini blue-stripe unlockBtn' onclick='unlock(" + ads.adId + ")' href='#'>Lås op</a></td>" +
-                "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
-                "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
-                "</tr>"
-            );
+if (ads.locked == 1) {
+    $adsreservation.append(
+        "<tr>" +
+        "<td>" + ads.adId + "</td>" +
+        "<td>" + ads.isbn + "</td>" +
+        "<td>" + ads.rating + "/5" + "</td>" +
+        "<td>" + ads.price + "</td>" +
+        "<td>" + locked + "</td>" +
+        "<td><a class='btn mini blue-stripe unlockBtn' onclick='unlock(" + ads.adId + ")' href='#'>Lås op</a></td>" +
+        "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
+        "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
+        "</tr>"
+    );
 
+}
+else{
+    $adsreservation.append(
+        "<tr>" +
+        "<td>" + ads.adId + "</td>" +
+        "<td>" + ads.isbn + "</td>" +
+        "<td>" + ads.rating + "/5" + "</td>" +
+        "<td>" + ads.price + "</td>" +
+        "<td>" + locked + "</td>" +
+        "<td><a></a></td>" +
+        "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
+        "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
+        "</tr>"
+    );
+
+}
 
 
           })
@@ -40,6 +57,7 @@ $(document).ready(function(){
         error: function( ads ) { alert(JSON.stringify(data)); }
     });
 });
+
 
 function unlock(adId){
 console.log(adId);
