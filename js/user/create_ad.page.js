@@ -2,23 +2,7 @@
 
 $(document).ready(function(){
     var $createad = $("#createad");
-/*
-    $.ajax({
-        type: "POST",
-        dataType: "json",
-        xhrFields: { withCredentials: true },
-        url: "https://localhost:8000/login",
-        data: JSON.stringify({
-            "username" : "test",
-            "password" : "1234"
-        }),
-
-        success: function( data ) {//alert(JSON.stringify(data));
-         },
-        error: function( data ) { alert(JSON.stringify(data)); }
-    });
-
-*/
+});
 function submitadform(){
     $.ajax({
         type: "POST",
@@ -43,4 +27,4 @@ function submitadform(){
     error: function( data ) { alert("Der er desværre sket en fejl. Prøv igen.\n" + JSON.stringify(data)); }
 
     });
-  }});
+  }
