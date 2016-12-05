@@ -30,7 +30,7 @@ if (ads.locked == 1) {
         "<td>" + locked + "</td>" +
         "<td><a class='btn mini blue-stripe unlockBtn' onclick='unlock(" + ads.adId + ")' href='#'>Lås op</a></td>" +
         "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
-        "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
+        "<td><a class='btn mini blue-stripe' onclick='changead(" + ads.adId + ")'>Ændre</a></td>" +
         "</tr>"
     );
 
@@ -45,7 +45,9 @@ else{
         "<td>" + locked + "</td>" +
         "<td><a></a></td>" +
         "<td><a class='btn mini blue-stripe' onclick='removead(" + ads.adId + ")' href='#'>Slet</a></td>" +
-        "<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
+        "<td><a class='btn mini blue-stripe' onclick='changead(" + ads.adId + "), (" + ads.isbn + ")'>Ændre</a></td>" +
+        //"<td><a class='btn mini blue-stripe' href='#' data-toggle='modal' data-target='#changemodal'>Ændre</a></td>" +
+//,(" + ads.isbn + "),(" + ads.rating + ")
         "</tr>"
     );
 
@@ -58,7 +60,15 @@ else{
     });
 });
 
+function changead(adId, isbn, rating){
+  $('#changemodal').modal()
+  //$('#adid').val(adId)
+  $('#isbn').val(isbn)
+  $('#rating').val(rating)
+  $('#comment').val(adId)
+  $('#price').val(adId)
 
+}
 function unlock(adId){
 console.log(adId);
   $.ajax({
@@ -122,6 +132,11 @@ console.log(adId);
                   alert(JSON.stringify(data));
               }
           });
+
+
+
+
+
 
 
       }
