@@ -3,20 +3,6 @@
 $(document).ready(function(){
     var $createbook = $("#createbook");
 
-    /*    $.ajax({
-            type: "POST",
-            dataType: "json",
-            xhrFields: { withCredentials: true },
-            url: "https://localhost:8000/login",
-            data: JSON.stringify({
-                "username" : "test",
-                "password" : "1234"
-            }),
-
-            success: function( data ) {//alert(JSON.stringify(data));
-             },
-            error: function( data ) { alert(JSON.stringify(data)); }
-        });*/
 });
 
 function submitbookform() {
@@ -26,7 +12,7 @@ function submitbookform() {
         xhrFields: {withCredentials: true},
         url: "https://localhost:8000/createbook",
         data: JSON.stringify({
-            "isbn": $("#isbn").val(),
+            "isbn" : parseInt($("#isbn").val()),
             "title": $("#title").val(),
             "edition": $("#edition").val(),
             "author": $("#author").val()
@@ -34,7 +20,7 @@ function submitbookform() {
 
         }),
         success: function (data) {
-            alert("Din bog er blevet oprettet.\n" + JSON.stringify(data));
+            alert("Din bog er blevet oprettet.\n");
             document.location.href = "index_admin.html"
 
 

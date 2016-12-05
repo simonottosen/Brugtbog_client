@@ -10,16 +10,15 @@ function submitadform(){
         xhrFields: { withCredentials: true },
         url: "https://localhost:8000/createad",
         data: JSON.stringify({
-          "userid" : 1,
-          "isbn" : $("#isbn").val(),
-          "rating" : $("#rating").val(),
+          "isbn" : parseInt($("#isbn").val()),
+          "rating" : parseInt($("#rating").val()),
           "comment" : $("#comment").val(),
-          "price" : $("#price").val()
+          "price" : parseInt($("#price").val())
 
 
     }),
     success: function( data ) {
-      alert("Din annonce er blevet oprettet.\n" + JSON.stringify(data));
+      alert("Din annonce er blevet oprettet.\n");
       document.location.href = "index_user.html"
 
 
