@@ -54,7 +54,7 @@ else{
 
           })
         },
-        error: function( ads ) { alert(JSON.stringify(data)); }
+        error: function( ads ) {  }
     });
 });
 
