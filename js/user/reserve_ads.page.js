@@ -46,6 +46,7 @@ else{
                 "<td>" + cash + "</td>" +
 
 
+
                 "<td><a class='btn mini blue-stripe' onclick='lock(" + ads.adId + ")' href='#'>Reserver</a></td>" +
                 "</tr>"
             );

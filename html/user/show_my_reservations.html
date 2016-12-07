@@ -8,7 +8,7 @@
   <script type="text/javascript" src="/Brugtbog_client/js/user/show_my_reservations.page.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Title</title>
+    <title>Brugtbog</title>
 </head>
 <body>
 
@@ -74,6 +74,46 @@
         </tbody>
 
     </table>
+
+<!-- Modal -->
+<div id="address" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <table class="table">
+            <thead>
+            <th>ISBN</th>
+            <th>Titel</th>
+            <th>Forfatter</th>
+            <th>Udgave</th>
+            <th>Rating</th>
+            <th>Pris</th>
+            <th>Sælgers brugernavn</th>
+            <th>Telefonnummer</th>
+            <th>Bankoverførsel</th>
+            <th>Mobilepay</th>
+            <th>Kontanter</th>
+            <th>Fjern reservation</th>
+            </thead>
+            <tbody id="addressdata">
+                <tr>
+                </tr>
+
+            </tbody>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script type="text/javascript">
 $(document).ready(function() {

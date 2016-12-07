@@ -8,7 +8,7 @@
   <script type="text/javascript" src="/Brugtbog_client/js/user/show_my_ads.page.js"></script>
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>Title</title>
+    <title>Brugtbog</title>
 </head>
 <body>
 
@@ -52,13 +52,12 @@
     <table class="table">
         <thead>
         <th>Annonce-ID</th>
-        <th>ISBN</th>
+        <th>Kommentar</th>
         <th>Rating</th>
         <th>Pris</th>
         <th>Reserveret</th>
         <th>Lås</th>
         <th>Slet</th>
-        <th>Ændre</th>
 
         </thead>
         <tbody id="adsreservation">
@@ -68,42 +67,6 @@
         </tbody>
 
     </table>
-    <div id="changemodal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Ændre bog</h4>
-      </div>
-      <div class="modal-body">
-          <h2>Ændre din annonce</h2>
-          <p>Udfyld venligst nedenstående information:</p>
-          <form onsubmit="myFunction()">
-            <div class="adform">
-              <label for="isbn">ISBN:</label>
-              <input type="text" class="form-control" id="isbn" value="Indtast dit nye ISBN">
-
-              <label for="rating">Rating:</label>
-              <input type="text" class="form-control" id="rating" value="Indtast din nye rating">
-
-              <label for="comment">Skriv en kommentar om den nuværende stand:</label>
-              <input type="text" class="form-control" id="comment" value="Nye stand">
-
-              <label for="price">Pris:</label>
-              <input type="text" class="form-control" id="price" value="Nye pris">
-
-    </br>
-            </div>
-
-
-          </form>
-           <button onclick="submitadform()">Ændre annonce</button>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
 
   </div>
