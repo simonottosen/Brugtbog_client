@@ -23,10 +23,11 @@ function submituserform(){
 
   }),
   success: function( data ) {
-    alert("Din bruger er blevet oprettet. Du bliver nu sendt til forsiden.\n" + JSON.stringify(data));
+    alert("Din bruger er blevet oprettet. Du bliver nu sendt til forsiden.");
+    document.location.href = "index.html"
 
 
    },
-  error: function( data ) { alert("Prøv venligst igen med et andet brugernavn.\n" + JSON.stringify(data)); }
+  error: function( data ) { alert("Prøv venligst igen med et andet brugernavn."); }
   });
 }

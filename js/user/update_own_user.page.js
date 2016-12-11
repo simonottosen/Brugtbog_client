@@ -81,9 +81,8 @@ function changeuserform(){
         "phonenumber" : parseInt($("#phonenumber").val()),
         "address": $("#address").val(),
         "email": $("#email").val(),
-        "mobilepay": $("#mobilepay").val(),
-        "cash"  : parseInt($("#cash").is(':checked') ? 1 : 0),
         "mobilepay" : parseInt($("#mobilepay").is(':checked') ? 1 : 0),
+        "cash"  : parseInt($("#cash").is(':checked') ? 1 : 0),
         "transfer" : parseInt($("#transfer").is(':checked') ? 1 : 0)
 
   }),

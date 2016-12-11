@@ -13,24 +13,6 @@ $(document).ready(function(){
         success: function( ads ) {
           ads.forEach(function(ads){
 
-if (ads.userTransfer == 0){
-  var transfer = "Nej";
-}
-else{
-  var transfer = "Ja";
-}
-if (ads.userMobilepay == 0){
-  var mobilepay = "Nej";
-}
-else{
-  var mobilepay = "Ja";
-}
-if (ads.userCash == 0){
-  var cash = "Nej";
-}
-else{
-  var cash = "Ja";
-}
             $adsreservation.append(
                 "<tr>" +
                 "<td>" + ads.adId +"</td>" +
@@ -41,9 +23,6 @@ else{
                 "<td>" + ads.rating + "/5" + "</td>" +
                 "<td>" + ads.price + "</td>" +
                 "<td>" + ads.userUsername + "</td>" +
-                "<td>" + transfer + "</td>" +
-                "<td>" + mobilepay + "</td>" +
-                "<td>" + cash + "</td>" +
                 "</tr>"
             );
           })
