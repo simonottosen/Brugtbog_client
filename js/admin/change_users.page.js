@@ -112,11 +112,11 @@ function changeuserform(){
                       "id": adId
                   }),
                   success: function (data) {
-                    //  window.location.reload(false);//alert(JSON.stringify(data));
+                      window.location.reload(false);//alert(JSON.stringify(data));
                   },
                   error: function (data) {
-                  //    window.location.reload(false);
-                      alert(JSON.stringify(data));
+                      window.location.reload(false);
+                     // alert(JSON.stringify(data));
                   }
               });
           }
